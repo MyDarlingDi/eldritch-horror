@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101615">
+  <meta name="description" content="Автономный companion для Eldritch Horror: Streamlined v0.2">
+  <title>Eldritch Horror: Streamlined v0.2</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cthulhu.css">
+  <link rel="stylesheet" href="monsters.css">
+  <link rel="stylesheet" href="room.css">
+</head>
+<body>
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">Настольный companion · автономно</p>
+      <h1>ELDRITCH <span>HORROR</span></h1>
+      <p class="subtitle">Streamlined <b>v0.2</b></p>
+    </div>
+    <div class="header-actions"><button class="room-button" data-act="room"><span id="room-status">Локальная партия</span><b id="room-code">Общая комната</b></button><div class="round-box"><span>Раунд</span><strong id="round">1</strong><button data-act="round">Следующий</button></div></div>
+  </header>
+
+  <nav class="tabs" aria-label="Разделы">
+    <button class="active" data-tab="investigators">Сыщики</button>
+    <button data-tab="world">Мир</button>
+    <button data-tab="mythos">Миф</button>
+    <button data-tab="rules">Правила</button>
+  </nav>
+
+  <main>
+    <section id="investigators" class="panel active">
+      <div class="section-head"><div><p class="kicker">Фаза действий</p><h2>Сыщики</h2></div><button class="primary" data-act="add-investigator">+ Добавить сыщика</button></div>
+      <div id="investigator-list" class="cards"></div>
+    </section>
+
+    <section id="world" class="panel">
+      <div class="section-head"><div><p class="kicker">Состояние партии</p><h2>Мир</h2></div><button class="ghost" data-act="new-game">Новая партия</button></div>
+      <article class="ancient-one">
+        <div class="cthulhu-sigil">C</div>
+        <div><p class="kicker">Древний этой партии</p><h2>Ктулху</h2><p>Спящий в Р’льехе · владыка глубин</p></div>
+        <div class="ancient-rules"><p><b>Расплата</b> Каждый сыщик в морской локации без жетона Древних кладёт такой жетон в свою локацию.</p><p><b>Вторжение</b> Входя в локацию с жетоном Древних, сыщик теряет 1 рассудок и становится задержанным.</p><p class="subtle">Если жетон появился там, где сыщик уже находился, эффект входа не срабатывает.</p></div>
+      </article>
+      <div class="world-grid">
+        <article class="doom-card"><p>Безысходность</p><div class="counter"><button data-counter="doom" data-delta="-1">−</button><strong id="doom">14</strong><button data-counter="doom" data-delta="1">+</button></div><small>Меньшее число опаснее; 0 пробуждает Древнего.</small></article>
+        <article><p class="label">Знамение</p><div class="omen" id="omen"><button data-omen="0">●</button><button data-omen="1">☄</button><button data-omen="2">◐</button><button data-omen="3">✦</button></div><button class="wide" data-act="next-omen">Следующее знамение</button></article>
+        <article><p class="label">Врата по знамениям</p><div class="gate-row" id="gates"></div><small>Нужны для автоматического расчёта повышения безысходности.</small></article>
+        <article><p class="label">Ключевые объекты</p><div class="mini-grid"><label>Врата<strong class="derived-total" id="gate-total">0</strong></label><label>Монстры<strong class="derived-total" id="monster-total">0</strong></label><label>Улики на поле<input id="clue-total" type="number" min="0" value="0"></label><label>Разгадано тайн<input id="mystery-total" type="number" min="0" value="0"></label></div><small>Врата и монстры считаются автоматически.</small></article>
+      </div>
+      <article class="monster-board"><div class="article-head"><div><p class="kicker">Угрозы на поле</p><h3>Монстры</h3></div><button data-act="add-monster">+ Добавить монстра</button></div><div id="monster-list" class="monster-list"></div></article>
+      <div class="split">
+        <article><div class="article-head"><h3>Активные процессы и слухи</h3><button data-act="add-process">+ Добавить</button></div><div id="process-list"></div></article>
+        <article><div class="article-head"><h3>Журнал истории</h3><button data-act="add-log">+ Запись</button></div><ol id="story-log" class="timeline"></ol></article>
+      </div>
+    </section>
+
+    <section id="mythos" class="panel">
+      <div class="section-head"><div><p class="kicker">Проводник по фазе</p><h2>Миф</h2></div><button class="primary" data-act="start-mythos">Начать фазу</button></div>
+      <div class="mythos-layout">
+        <article class="mythos-runner"><div id="mythos-step" class="step-display"><span>Готово</span><h3>Нажмите «Начать фазу»</h3><p>Читайте значки физической карты слева направо. Companion не заменяет её текст.</p></div><div class="runner-actions"><button data-act="mythos-prev">Назад</button><button class="primary" data-act="mythos-next">Выполнено →</button></div></article>
+        <aside><h3>Официальная последовательность</h3><ol class="checklist"><li>Сдвинуть знамение</li><li>Разыграть расплату</li><li>Открыть врата</li><li>Наплыв монстров</li><li>Появление улик</li><li>Прочие значки и текст карты</li></ol><p class="note">Выполняйте только значки, напечатанные на текущей карте Мифа, строго слева направо.</p></aside>
+      </div>
+    </section>
+
+    <section id="rules" class="panel">
+      <div class="section-head"><div><p class="kicker">Короткая книга правил</p><h2>Streamlined v0.2</h2></div><div class="segmented"><button class="active" data-rule-mode="all">Все</button><button data-rule-mode="official">Официальные</button><button data-rule-mode="home">Хоумрулы</button></div></div>
+      <div class="rule-banner"><b>Главный принцип</b><span>Удаляем процедуру, но не решение, риск или сюжет.</span></div>
+      <div id="rules-grid" class="rules-grid"></div>
+    </section>
+  </main>
+
+  <footer><span>Данные хранятся только в этом браузере.</span><div><button data-act="export">Экспорт</button><label class="import">Импорт<input id="import-file" type="file" accept="application/json"></label></div></footer>
+
+  <dialog id="modal"><form method="dialog"><button class="close" value="cancel" aria-label="Закрыть">×</button><div id="modal-content"></div></form></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
