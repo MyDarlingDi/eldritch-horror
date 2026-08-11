@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="cthulhu.css">
   <link rel="stylesheet" href="monsters.css">
   <link rel="stylesheet" href="room.css">
+  <link rel="stylesheet" href="conditions.css?v=5">
 </head>
 <body>
   <header class="masthead">
@@ -30,7 +31,7 @@
 
   <main>
     <section id="investigators" class="panel active">
-      <div class="section-head"><div><p class="kicker">Фаза действий</p><h2>Сыщики</h2></div><button class="primary" data-act="add-investigator">+ Добавить сыщика</button></div>
+      <div class="section-head"><div><p class="kicker">Фазы сыщиков</p><h2>Сыщики</h2></div><div class="header-actions"><button class="ghost" data-act="contact-phase">Фаза контактов</button><button class="primary" data-act="add-investigator">+ Выбрать сыщика</button></div></div>
       <div id="investigator-list" class="cards"></div>
     </section>
 
@@ -72,6 +73,6 @@
   <footer><span>Данные хранятся только в этом браузере.</span><div><button data-act="export">Экспорт</button><label class="import">Импорт<input id="import-file" type="file" accept="application/json"></label></div></footer>
 
   <dialog id="modal"><form method="dialog"><button class="close" value="cancel" aria-label="Закрыть">×</button><div id="modal-content"></div></form></dialog>
-  <script src="app.js"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>
