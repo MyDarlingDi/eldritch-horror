@@ -17,3 +17,8 @@
 .contact-list{display:grid;gap:12px;margin:18px 0}.contact-summary{padding:16px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.025)}
 .contact-summary h3{margin:0}.contact-summary ul{margin:8px 0 0;padding-left:22px}.contact-summary li{margin:6px 0}
 .combat-warning{margin:12px 0;padding:12px;border-left:3px solid #c45a51;background:rgba(196,90,81,.1);line-height:1.45}
+.catalog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:55vh;overflow:auto;margin:14px 0;padding-right:4px}
+.catalog-grid button{min-height:50px;text-align:left}.monster-picker button{display:flex;flex-direction:column;justify-content:center}.monster-picker span{margin-top:3px;color:var(--muted);font-size:.73rem}
+.inventory-entry span{display:grid;gap:4px}.inventory-entry small{max-width:44rem;color:var(--muted);line-height:1.4;font-weight:400}
+details{padding:10px;border:1px solid var(--line);border-radius:10px}details summary{cursor:pointer;margin-bottom:8px}
+@media(max-width:620px){.catalog-grid{grid-template-columns:1fr}}
