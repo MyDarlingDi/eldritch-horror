@@ -1,13 +1,12 @@
-# Eldritch Horror: общая комната
+# Eldritch Horror — Cloudflare Worker
 
-Готовый проект для Cloudflare Pages. Сборка и npm не требуются.
+Эта версия предназначена для уже созданного Worker `eldritch-horror`.
 
-При создании Pages-проекта:
+1. Загрузите всё содержимое этой папки в корень GitHub-репозитория.
+2. Дождитесь успешной автоматической публикации.
+3. В Cloudflare откройте Worker → Bindings → Add a binding → D1 database.
+4. Variable name: `DB`.
+5. Database: `eldritch-horror-rooms`.
+6. Сохраните и при необходимости повторно опубликуйте последнюю версию.
 
-- Framework preset: `None`
-- Build command: `exit 0`
-- Build output directory: `.`
-
-После первой публикации создайте D1 database и добавьте её в Pages project как D1 binding с именем `DB`. Затем запустите повторную публикацию.
-
-Таблица `rooms` создаётся автоматически при первом запросе. Файл `schema.sql` приложен как резервный вариант для ручного создания.
+Таблица комнат создаётся автоматически при первом запросе.
