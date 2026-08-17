@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="cthulhu.css">
   <link rel="stylesheet" href="monsters.css">
   <link rel="stylesheet" href="room.css">
-  <link rel="stylesheet" href="conditions.css?v=12">
+  <link rel="stylesheet" href="conditions.css?v=13">
+  <link rel="stylesheet" href="v13.css?v=13">
+  <link rel="stylesheet" href="v14.css?v=14">
 </head>
 <body>
   <header class="masthead">
@@ -48,6 +50,7 @@
         <article><p class="label">Врата по знамениям</p><div class="gate-row" id="gates"></div><small>Нужны для автоматического расчёта повышения безысходности.</small></article>
         <article><p class="label">Ключевые объекты</p><div class="mini-grid"><label>Врата<strong class="derived-total" id="gate-total">0</strong></label><label>Монстры<strong class="derived-total" id="monster-total">0</strong></label><label>Улики на поле<input id="clue-total" type="number" min="0" value="0"></label><label>Разгадано тайн<input id="mystery-total" type="number" min="0" value="0"></label></div><small>Врата и монстры считаются автоматически.</small></article>
       </div>
+      <article class="campaign-board"><div class="article-head"><div><p class="kicker">Streamlined v0.3 · вместо официальных карт тайн</p><h3>Расследование Ктулху</h3></div><button data-act="campaign-help">Как это работает</button></div><div id="campaign-progress"></div></article>
       <article class="monster-board"><div class="article-head"><div><p class="kicker">Угрозы на поле</p><h3>Монстры</h3></div><button data-act="add-monster">+ Добавить монстра</button></div><div id="monster-list" class="monster-list"></div></article>
       <div class="split">
         <article><div class="article-head"><h3>Активные процессы и слухи</h3><button data-act="add-process">+ Добавить</button></div><div id="process-list"></div></article>
@@ -73,9 +76,11 @@
   <footer><span>Данные хранятся только в этом браузере.</span><div><button data-act="export">Экспорт</button><label class="import">Импорт<input id="import-file" type="file" accept="application/json"></label></div></footer>
 
   <dialog id="modal"><form method="dialog"><button class="close" value="cancel" aria-label="Закрыть">×</button><div id="modal-content"></div></form></dialog>
-  <script src="database.js?v=12"></script>
-  <script src="catalog.js?v=12"></script>
-  <script src="mythos-data.js?v=12"></script>
-  <script src="app.js?v=12"></script>
+  <script src="database.js?v=13"></script>
+  <script src="catalog.js?v=13"></script>
+  <script src="mythos-data.js?v=13"></script>
+  <script src="app.js?v=13"></script>
+  <script src="v13.js?v=13"></script>
+  <script src="v14.js?v=14"></script>
 </body>
 </html>
